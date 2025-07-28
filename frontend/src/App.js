@@ -1,0 +1,22 @@
+// import logo from './logo.svg';
+import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
+import LandingPage from './pages/landing';
+import './App.css';
+
+function App() {
+  return (
+    <> 
+      <Router>
+
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          {/* Add more routes here as needed */}
+          {/* <Route path="/another-page" element={<AnotherPage />} /> */}  
+        </Routes>
+      </Router>
+    
+    </>
+  );
+}
+
+export default App;

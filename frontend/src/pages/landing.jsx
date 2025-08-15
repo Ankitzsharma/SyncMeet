@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../App.css';
 export default function landing(){
     return(
@@ -8,13 +9,30 @@ export default function landing(){
                     <h2>SyncMeet</h2>
                 </div>
                 <div className='navlist'>
-                    <ul>
-                        <li>kj</li>
-                        <li>dn</li>
-                        <li>mnde</li>
-                    </ul>
+                    <p>Join as Guest</p>
+                    <p>Register</p>
+                    <div role='button'><p>Login</p></div>
                 </div>
             </nav>
+
+            <div className='landingMainContainer'>
+                <div>
+                    <h1><span style={{color:"orange"}}>Connect</span> With Your Loved Once.</h1>
+                    <p>Cover a Distance By <span style={{color:"orange"}}>SyncMeet</span></p>
+
+                    <div role="button" className='startButton' >
+                        <Link to={"/home"}>Get Started</Link>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="/mobile.png" alt="Mobile Photo" />
+                </div>
+
+
+            </div>
+
+            
 
         </div>
     )

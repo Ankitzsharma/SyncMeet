@@ -17,11 +17,11 @@ export default function landing(){
 
             <div className='landingMainContainer'>
                 <div>
-                    <h1><span style={{color:"orange"}}>Connect</span> With Your Loved Once.</h1>
+                    <h2><span style={{color:"orange"}}>Connect</span> With Your Loved Once.</h2>
                     <p>Cover a Distance By <span style={{color:"orange"}}>SyncMeet</span></p>
 
                     <div role="button" className='startButton' >
-                        <Link to={"/home"}>Get Started</Link>
+                        <Link to={"/auth"}>Get Started</Link>
                     </div>
                 </div>
 

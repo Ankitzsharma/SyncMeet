@@ -7,14 +7,18 @@ let timeOnline={};
 
 const connectToSocket = (server)=>{
     const io=new Server(server,{
-        origin: "*",
-        methods:['GET','POST'],
-        allowedHeaders:['*'],
-        credentials:true
+    //    cors:{
+    //     origin: "*",
+    //     methods:['GET','POST'],
+    //     allowedHeaders:['*'],
+    //     credentials:true
+    //    }
     });
     
 
     io.on('connection', (Socket)=>{
+
+        console.log("Something COnnecting")
 
         Socket.on('join-call', (path)=>{
 

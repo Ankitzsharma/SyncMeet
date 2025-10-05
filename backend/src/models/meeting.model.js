@@ -1,5 +1,5 @@
-
-
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 const meetingSchema=new Schema(
     {
         user_id:{type:String},

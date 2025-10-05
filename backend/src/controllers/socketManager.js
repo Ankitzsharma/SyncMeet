@@ -18,7 +18,7 @@ const connectToSocket = (server)=>{
 
     io.on('connection', (Socket)=>{
 
-        console.log("Something COnnecting")
+        console.log("Something Connecting")
 
         Socket.on('join-call', (path)=>{
 
@@ -83,7 +83,6 @@ const connectToSocket = (server)=>{
             var key;
 
             for(const [k, v] of JSON.parse(JSON.stringify(Object.entries(connections)))){
-
                 for(let a=0; a<v.length; ++a){
                     if(v[a]===Socket.id){
                         key=k;

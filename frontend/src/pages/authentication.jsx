@@ -3,18 +3,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from '../contexts/AuthContext';
 import { Snackbar } from '@mui/material';
-
+// import Grid from '@mui/material/Unstable_Grid2';
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -44,14 +44,15 @@ export default function Authentication() {
             if (formState === 0) {
 
                 let result = await handleLogin(username, password)
+                console.log(result.data);
 
 
             }
             if (formState === 1) {
                 let result = await handleRegister(name, username, password);
-                console.log(result);
+                console.log(result.data);
                 setUsername("");
-                setMessage(result);
+                setMessage(result.data?.message || "Registration Successful");
                 setOpen(true);
                 setError("")
                 setFormState(0)
@@ -59,8 +60,8 @@ export default function Authentication() {
             }
         } catch (err) {
 
-            console.log(err);
-            let message = (err.response.data.message);
+            console.error("Auth error: ",err);
+            let message = (err.response?.data?.message || "An error occurred");
             setError(message);
         }
     }
@@ -76,7 +77,7 @@ export default function Authentication() {
                     sm={4}
                     md={7}
                     sx={{
-                        backgroundImage: `url("https://api.unsplash.com/photos/random?query=technology,office&orientation=landscape")`,
+                        backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
                         backgroundRepeat: 'no-repeat',
                         backgroundColor: (t) =>
                             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
